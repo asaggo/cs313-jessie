@@ -1,0 +1,64 @@
+.container {
+    text-align: center;
+    padding: 16px;
+    margin: 24px 0 12px 0;
+}
+
+
+.login {
+    background-color: coral;
+    color: cornsilk;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#loginImage {
+    border-radius: 50%;
+}
+
+.viewCart, .logout{
+    background-color: coral;
+    color: white;
+    padding: 3px 5px;
+    margin: 3px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.addToCart, .backToMain, .submitOrder, .checkout{
+    background-color: coral;
+    color: white;
+    padding: 3px 5px;
+    margin: 3px 0;
+    border: none;
+    cursor: pointer;
+
+}
+.buttons {
+    text-align: center;
+}
+
+.list {
+    font-family:sans-serif;
+    color:black;
+    text-align: center;
+}
+
+.wholePage{
+    background-color: floralwhite;
+}
+
+#hsc {
+    font-family:sans-serif;
+    color:black;
+    text-align: center;    
+}
+
+p {
+    font-family:sans-serif;
+    color:black;
+    text-align: center; 
+}
