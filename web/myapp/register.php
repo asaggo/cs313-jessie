@@ -16,11 +16,14 @@ $statement->execute();
 $statement->closeCursor();
     
 $id = $db->lastInsertId('chef_id_seq');
+    
+header("Location: login.html");
+exit();
 }
 catch(PDOException $e){
     echo $e->getMessage();
 }
     
     
-    
+
 ?>
