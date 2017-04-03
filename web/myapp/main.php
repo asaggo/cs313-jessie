@@ -8,7 +8,12 @@ if(isset($_SESSION['userId'])){
     $statement = $db->prepare('SELECT name FROM chef WHERE id = :id LIMIT 1');
     $statement->bindValue(':id',$_SESSION['userId']);
     */
-    echo "<a href='insertRecipe.php'>Add Recipe Here</a><br>";
+    
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+    echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">';
+    echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>';
+    echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>';
+    echo "<a href='insertRecipe.php' class='btn btn-default'>Add Recipe Here</a><br>";
     
     
     echo "<form method='post' action='main.php'>";
@@ -86,6 +91,8 @@ if(isset($_SESSION['userId'])){
     
     
     echo "<button>Find!</button></form>";
+
+    
     if (!empty($_POST)){
         $statement = $db->prepare('SELECT title,content FROM recipe WHERE chef_id = :chef_id AND dish_id = :dish_id AND country_id = :country_id AND material_id = :material_id AND level_id = :level_id');
         $statement->bindValue(':chef_id',$_POST['chef']);
@@ -111,7 +118,12 @@ if(isset($_SESSION['userId'])){
             echo "</div>";
         }
     }
-
+    
+    
+    echo "<br><br><a href='logout.php' class='btn btn-default'>Log Out</a>";
+    echo "<br><br><a href='editRecipe.php' class='btn btn-default'>Edit My Recipe</a>";
+    echo "<br><br><a href='deleteRecipe.php' class='btn btn-default'>Delete My Recipe</a>";
+    
 }
 else{
     header('Location: login.html');
