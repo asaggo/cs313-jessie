@@ -62,3 +62,7 @@ p {
     color:black;
     text-align: center; 
 }
+
+.label{
+    font-size: 200%;
+}

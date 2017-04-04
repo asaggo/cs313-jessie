@@ -10,14 +10,19 @@ if(isset($_SESSION['userId'])){
     */
     
     echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+    echo '<link rel="stylesheet" type="text/css" href="myapp.css">';
     echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">';
     echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>';
     echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>';
-    echo "<a href='insertRecipe.php' class='btn btn-default'>Add Recipe Here</a><br>";
+    echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">';
+    echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>';
+    echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>';
+    
+    
+
     
     
     echo "<form method='post' action='main.php'>";
-    
     
     $statement = $db->prepare('SELECT id,type FROM country');
     
@@ -25,7 +30,8 @@ if(isset($_SESSION['userId'])){
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     $statement->closeCursor();
     
-    echo "<select name='country'>";
+   
+    echo "<select name='country' class='selectpicker' data-style='btn-primary'>";
     foreach ($result as $row){
         echo "<option value='". $row['id']. "'>";
         echo $row['type']."</option>";
@@ -39,7 +45,8 @@ if(isset($_SESSION['userId'])){
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     $statement->closeCursor();
     
-    echo "<select name='dish'>";
+    
+    echo "<select name='dish' class='selectpicker' data-style='btn-info'>";
     foreach ($result as $row){
         echo "<option value='". $row['id']. "'>";
         echo $row['type']."</option>";
@@ -54,7 +61,8 @@ if(isset($_SESSION['userId'])){
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     $statement->closeCursor();
     
-    echo "<select name='level'>";
+
+    echo "<select name='level' class='selectpicker' data-style='btn-success'>";
     foreach ($result as $row){
         echo "<option value='". $row['id']. "'>";
         echo $row['type']."</option>";
@@ -68,7 +76,8 @@ if(isset($_SESSION['userId'])){
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     $statement->closeCursor();
     
-    echo "<select name='material'>";
+    
+    echo "<select name='material' class='selectpicker' data-style='btn-warning'>";
     foreach ($result as $row){
         echo "<option value='". $row['id']. "'>";
         echo $row['type']."</option>";
@@ -82,7 +91,7 @@ if(isset($_SESSION['userId'])){
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     $statement->closeCursor();
     
-    echo "<select name='chef'>";
+    echo "<select name='chef' class='selectpicker' data-style='btn-danger'>";
     foreach ($result as $row){
         echo "<option value='". $row['id']. "'>";
         echo $row['name']."</option>";
@@ -120,9 +129,11 @@ if(isset($_SESSION['userId'])){
     }
     
     
-    echo "<br><br><a href='logout.php' class='btn btn-default'>Log Out</a>";
-    echo "<br><br><a href='editRecipe.php' class='btn btn-default'>Edit My Recipe</a>";
-    echo "<br><br><a href='deleteRecipe.php' class='btn btn-default'>Delete My Recipe</a>";
+    echo "<a href='insertRecipe.php' class='btn btn-default'>Add Recipe Here</a>";
+    echo "<a href='logout.php' class='btn btn-default'>Log Out</a>";
+    echo "<a href='editRecipe.php' class='btn btn-default'>Edit My Recipe</a>";
+    echo "<a href='deleteRecipe.php' class='btn btn-default'>Delete My Recipe</a>";    
+    
     
 }
 else{
